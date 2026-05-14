@@ -62,7 +62,7 @@ app.post("/", (req: Request, res: Response) => {
     data: name,
     age,
   });
-  // console.log(req.body);
+  console.log(req.body);
 });
 
 app.listen(port, () => {
