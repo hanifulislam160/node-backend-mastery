@@ -22,10 +22,7 @@ import { Pool } from "pg";
 
 const pool = new Pool({
   connectionString:
-    "postgresql://neondb_owner:npg_d34TMoilRrHv@ep-young-star-aql8qbjk-pooler.c-8.us-east-1.aws.neon.tech/neondb",
-  ssl: {
-    rejectUnauthorized: false,
-  },
+    "postgresql://neondb_owner:npg_8T7uokCbstVd@ep-empty-queen-aosquhye-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
 });
 
 const initDb = async () => {
