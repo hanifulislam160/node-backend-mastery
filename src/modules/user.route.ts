@@ -12,6 +12,8 @@ router.get("/users", async (req: Request, res: Response) => {
       SELECT * FROM users
       ORDER BY id ASC
     `);
+     
+
 
     return res.status(200).json({
       success: true,
