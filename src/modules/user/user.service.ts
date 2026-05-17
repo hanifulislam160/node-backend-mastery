@@ -1,4 +1,4 @@
-import { pool } from "../db";
+import { pool } from "../../db";
 import type { IUser } from "./user.interface";
 
 const createUserIntoDB = async (payload: IUser) => {

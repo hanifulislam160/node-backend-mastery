@@ -1,11 +1,10 @@
-import { Router, type Request, type Response } from "express";
-import { pool } from "../db";
+import { Router} from "express";
 import { userController } from "./user.controller";
 
 const router = Router();
 
 // Create User
-router.post("/", userController.createUser );
+router.post("/", userController.createUser);
 
 // Get All Users
 router.get("/", userController.getAllUserFromDB);

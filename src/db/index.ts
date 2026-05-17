@@ -8,7 +8,7 @@ export const pool = new Pool({
 export const initDb = async () => {
   try {
     const client = await pool.connect();
-    console.log("DB connected successfully");
+    
 
     await client.query(`
       CREATE TABLE IF NOT EXISTS users (
@@ -22,6 +22,23 @@ export const initDb = async () => {
         updated_at TIMESTAMP DEFAULT NOW()
       )
     `);
+    //  user profiles
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS profiles (
+        id SERIAL PRIMARY KEY,
+        user_id INT UNIQUE,
+        bio TEXT,
+        address TEXT,
+        phone VARCHAR(15)
+        gender VARCHAR(10)
+        created_at TIMESTAMP DEFAULT NOW(),
+        updated_at TIMESTAMP DEFAULT NOW(),
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+      )
+`)
+
+    console.log("DB connected successfully");
+
 
     client.release();
   } catch (err) {
