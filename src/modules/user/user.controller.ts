@@ -2,8 +2,10 @@ import type { Request, Response } from "express";
 import { pool } from "../../db";
 import { userService } from "./user.service";
 
+
 const createUser = async (req: Request, res: Response) => {
   const { name, email, password, age } = req.body;
+
 
   if (!name || !email || !password || age === undefined) {
     return res.status(400).json({
@@ -14,7 +16,7 @@ const createUser = async (req: Request, res: Response) => {
 
   try {
     const result = await userService.createUserIntoDB(req.body);
-    console.log("Result:", result);
+    // console.log("Result:", result);
 
     return res.status(201).json({
       success: true,
