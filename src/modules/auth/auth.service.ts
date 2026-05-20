@@ -40,7 +40,7 @@ const loginUserIntoDB = async (payload: {
   };
   const accessToken = jwt.sign(result, "secretKey", { expiresIn: "1d" });
 
-  return accessToken;
+  return {accessToken};
 };
 
 export const authService = {

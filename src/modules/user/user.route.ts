@@ -1,5 +1,6 @@
 import { Router} from "express";
 import { userController } from "./user.controller";
+import auth from "../../middleware/auth";
 
 const router = Router();
 
@@ -7,7 +8,7 @@ const router = Router();
 router.post("/", userController.createUser);
 
 // Get All Users
-router.get("/", userController.getAllUserFromDB);
+router.get("/", auth(), userController.getAllUserFromDB);
 
 // Get User By ID
 router.get("/:id", userController.getUserByIdFromDB);
